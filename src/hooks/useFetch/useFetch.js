@@ -4,7 +4,7 @@ import axios from 'axios';
 function useFetch(url){
     const[data,setData]=useState([]);
     const[load,setLoad]=useState(true);
-    const[error,setError]=useState(null);
+    const[error,setError]=useState(false);
 
     const fetchData=async()=>{
         try{
@@ -13,7 +13,7 @@ function useFetch(url){
             setLoad(false);
         }
         catch(err){
-            setError(err.message)
+            setError(true)
             setLoad(false);
         }
     }
