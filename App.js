@@ -9,9 +9,26 @@ const Stack=createNativeStackNavigator();
 const Router = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown:false}}>
-        <Stack.Screen name='ProductsScreen' component={Products}/>
-        <Stack.Screen name='DetailScreen' component={Details}/>
+      <Stack.Navigator>
+        <Stack.Screen
+          name='ProductsScreen'
+          component={Products}
+          options={{
+            title:'SHOP',
+            headerStyle:{backgroundColor:'#d05ce3'},
+            headerTitleStyle:{color:'white',fontSize:20,fontWeight:'bold'}
+          }}
+        />
+        <Stack.Screen
+          name='DetailScreen' 
+          component={Details}
+          options={{
+            title:'DETAİL',
+            headerStyle:{backgroundColor:'#d05ce3'},
+            headerTitleStyle:{color:'white',fontSize:20,fontWeight:'bold'},
+            headerTintColor:'white'
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )

@@ -1,16 +1,19 @@
-import { FlatList, Text } from 'react-native'
+import { FlatList, Text,View } from 'react-native'
 import React from 'react'
 import Config from 'react-native-config'
 import Card from '../../components/productCard'
-import { SafeAreaView } from 'react-native-safe-area-context'
 import styles from './Products.style'
 import useFetch from '../../hooks/useFetch'
 import Load from '../../components/load'
 import Error from '../../components/error'
  
-const Products = () => {
+const Products = ({navigation}) => {
   const {data,load,error}=useFetch(Config.API_URL);
-  const renderData=({item})=><Card product={item}/>
+
+  const handleProductSelect=(id)=>{
+    navigation.navigate('DetailScreen',{id});
+  }
+  const renderData=({item})=><Card product={item} onSelect={()=>handleProductSelect(item.id)}/>
 
   if(load){
     return <Load/>
@@ -20,9 +23,9 @@ const Products = () => {
   }
   
   return (
-    <SafeAreaView style={styles.body}>
+    <View style={styles.body}>
       <FlatList data={data} renderItem={renderData}/>
-    </SafeAreaView>
+    </View>
   )
 }
 
