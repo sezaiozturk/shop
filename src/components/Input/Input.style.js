@@ -6,9 +6,11 @@ export default StyleSheet.create({
         padding: 10,
         borderRadius: 10,
         borderWidth: 1,
-        borderColor: 'purple'
+        borderColor: 'purple',
+        flexDirection: 'row'
     },
     input: {
-        fontSize: 18
+        fontSize: 18,
+        marginLeft: 10
     }
 })
